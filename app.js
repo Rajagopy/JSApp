@@ -2,9 +2,8 @@ var btnTranslate = document.querySelector("#btn-translate");
 var inputText = document.querySelector("#textthing");
 var outputText = document.querySelector("#output_display");
 
-//outputText.innerText = "THIS ACTUALLY WORKS MATE"
 
-// var api_url = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json";
+
 var api_url = "https://api.funtranslations.com/translate/shakespeare.json";
 function getUrl(text){
     return api_url+ "?" + "text=" + text
@@ -20,8 +19,7 @@ function clicker(){
     fetch(getUrl(inp))
         .then(response => response.json())
         .then(json => {
-            outputText.innerText = json.contents.translated
-        })
+            outputText.innerHTML = "<div style=\"display:block;\" ><br>"+"<p style=\"text-align: center; font-weight:bold; font-size:larger;\">"+json.contents.translated+"</p><br>"+"</div>"        })
         .catch(errorman)
 
 }
